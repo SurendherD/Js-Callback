@@ -1,13 +1,31 @@
-const cookies = [{name:"Chocolate Cookies"},{name:"Macaron Cookies"}]
-const newCookie = {name:"Biscotti Cookies"};
-
+const cookies = [{ name: 'Chocolate Cookies' }, { name: 'Macaron Cookies' }];
+const newCookie = { name: 'Biscotti Cookies' };
 
 // Progression 1: create a function to get all the cookies
-
-  // Progression 2: using setTimeout() 
+function getAllCookies() {
+  return cookies;
+}
+// Progression 2: using setTimeout() - use 1000 units for time parameter
+function getAllCookiesDelayed() {
+  setTimeout(() => {
+    let Cookies = getAllCookies();
+    console.log(Cookies);
+  }, 1000);
+}
 
 //Progression 3: Create a function to creat cookies
+// use setTimeout() -- use 2000 units for time parameter
+function addNewCookie(callback) {
+  setTimeout(() => {
+    cookies.push(newCookie);
+    callback()
+  }, 2000);
+}
 
+// Progression 4: calling functions
 
-
-// Progression 5: calling function
+getAllCookiesDelayed();
+addNewCookie(()=>{
+  let Cookies=getAllCookies();
+  console.log(Cookies);
+});
